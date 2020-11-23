@@ -30,14 +30,14 @@ public class GamePanel extends JPanel implements Runnable{
         beginTime = System.nanoTime();
         int a = 1;
         while(isRunning){
-//                System.out.println("a = "+(a++));
-//                long deltaTime = System.nanoTime() - beginTime;
-//                sleepTime = period - deltaTime;
-//            try {
-//                if (sleepTime>0) Thread.sleep(sleepTime/1000000);
-//                else Thread.sleep(sleepTime/2000000);
-//            } catch (InterruptedException e) { }
-            System.out.println("a = "+(a++));
+                System.out.println("a = "+(a++));
+                long deltaTime = System.nanoTime() - beginTime;
+                sleepTime = period - deltaTime;
+            try {
+                if (sleepTime>0) Thread.sleep(sleepTime/1000000);
+                else Thread.sleep(sleepTime/2000000);
+            } catch (InterruptedException e) { }
+//            System.out.println("a = "+(a++));
         }
     }
 }
