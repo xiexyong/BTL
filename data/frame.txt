@@ -1,0 +1,646 @@
+
+92
+
+idBoom1
+image data/Explosion.png
+x 0
+y 0
+w 16
+h 16
+
+idBoom2
+image data/Explosion.png
+x 16
+y 0
+w 16
+h 16
+
+idBoom3
+image data/Explosion.png
+x 32
+y 0
+w 16
+h 16
+
+idBoom4
+image data/Explosion.png
+x 48
+y 0
+w 16
+h 16
+
+idBoom5
+image data/Explosion.png
+x 64
+y 0
+w 16
+h 16
+
+idBoom6
+image data/Explosion.png
+x 80
+y 0
+w 16
+h 16
+
+idBoom7
+image data/Explosion.png
+x 96
+y 0
+w 16
+h 16
+
+idDirt1
+image data/Dirt.png
+x 0
+y 0
+w 16
+h 16
+
+idDirt2
+image data/Dirt.png
+x 16
+y 0
+w 16
+h 16
+
+idDirt3
+image data/Dirt.png
+x 32
+y 0
+w 16
+h 16
+
+idDirt4
+image data/Dirt.png
+x 48
+y 0
+w 16
+h 16
+
+idDirt5
+image data/Dirt.png
+x 0
+y 16
+w 16
+h 16
+
+idDirt6
+image data/Dirt.png
+x 16
+y 16
+w 16
+h 16
+
+idDirt7
+image data/Dirt.png
+x 32
+y 16
+w 16
+h 16
+
+idDirt8
+image data/Dirt.png
+x 48
+y 16
+w 16
+h 16
+
+idDirt9
+image data/Dirt.png
+x 0
+y 32
+w 16
+h 16
+
+idDirt10
+image data/Dirt.png
+x 16
+y 32
+w 16
+h 16
+
+idDirt11
+image data/Dirt.png
+x 32
+y 32
+w 16
+h 16
+
+idDirt12
+image data/Dirt.png
+x 48
+y 32
+w 16
+h 16
+
+idDirt13
+image data/Dirt.png
+x 0
+y 48
+w 16
+h 16
+
+idDirt14
+image data/Dirt.png
+x 16
+y 48
+w 16
+h 16
+
+idDirt15
+image data/Dirt.png
+x 32
+y 48
+w 16
+h 16
+
+idDirt16
+image data/Dirt.png
+x 48
+y 48
+w 16
+h 16
+
+idDirt17
+image data/Dirt.png
+x 0
+y 64
+w 16
+h 16
+
+idDirt18
+image data/Dirt.png
+x 16
+y 64
+w 16
+h 16
+
+idDirt19
+image data/Dirt.png
+x 32
+y 64
+w 16
+h 16
+
+idDirt20
+image data/Dirt.png
+x 48
+y 64
+w 16
+h 16
+
+idDirt21
+image data/Dirt.png
+x 0
+y 80
+w 16
+h 16
+
+idDirt22
+image data/Dirt.png
+x 16
+y 80
+w 16
+h 16
+
+idDirt23
+image data/Dirt.png
+x 32
+y 80
+w 16
+h 16
+
+idDirt24
+image data/Dirt.png
+x 48
+y 80
+w 16
+h 16
+
+idDirt25
+image data/Dirt.png
+x 0
+y 96
+w 16
+h 16
+
+idDirt26
+image data/Dirt.png
+x 16
+y 96
+w 16
+h 16
+
+idDirt27
+image data/Dirt.png
+x 32
+y 96
+w 16
+h 16
+
+idDirt28
+image data/Dirt.png
+x 48
+y 96
+w 16
+h 16
+
+idDirt29
+image data/Dirt.png
+x 0
+y 112
+w 16
+h 16
+
+idDirt30
+image data/Dirt.png
+x 16
+y 112
+w 16
+h 16
+
+idDirt31
+image data/Dirt.png
+x 32
+y 112
+w 16
+h 16
+
+idDirt32
+image data/Dirt.png
+x 48
+y 112
+w 16
+h 16
+
+idDirt33
+image data/Dirt.png
+x 0
+y 128
+w 16
+h 16
+
+idDirt34
+image data/Dirt.png
+x 16
+y 128
+w 16
+h 16
+
+idDirt35
+image data/Dirt.png
+x 32
+y 128
+w 16
+h 16
+
+idDirt36
+image data/Dirt.png
+x 48
+y 128
+w 16
+h 16
+
+idDirt37
+image data/Dirt.png
+x 0
+y 144
+w 16
+h 16
+
+idDirt38
+image data/Dirt.png
+x 16
+y 144
+w 16
+h 16
+
+idDirt39
+image data/Dirt.png
+x 32
+y 144
+w 16
+h 16
+
+idDirt40
+image data/Dirt.png
+x 48
+y 144
+w 16
+h 16
+
+idDirt41
+image data/Dirt.png
+x 0
+y 160
+w 16
+h 16
+
+idDirt42
+image data/Dirt.png
+x 16
+y 160
+w 16
+h 16
+
+idDirt43
+image data/Dirt.png
+x 32
+y 160
+w 16
+h 16
+
+idDirt44
+image data/Dirt.png
+x 48
+y 160
+w 16
+h 16
+
+idDirt45
+image data/Dirt.png
+x 0
+y 176
+w 16
+h 16
+
+idDirt46
+image data/Dirt.png
+x 16
+y 176
+w 16
+h 16
+
+idDirt47
+image data/Dirt.png
+x 32
+y 176
+w 16
+h 16
+
+idDirt48
+image data/Dirt.png
+x 48
+y 176
+w 16
+h 16
+
+idDirt49
+image data/Dirt.png
+x 0
+y 192
+w 16
+h 16
+
+idDirt50
+image data/Dirt.png
+x 16
+y 192
+w 16
+h 16
+
+idDirt51
+image data/Dirt.png
+x 32
+y 192
+w 16
+h 16
+
+idDirt52
+image data/Dirt.png
+x 48
+y 192
+w 16
+h 16
+
+idWall1
+image data/Wall.png
+x 0
+y 0
+w 16
+h 16
+
+idWall2
+image data/Wall.png
+x 16
+y 0
+w 16
+h 16
+
+idWall3
+image data/Wall.png
+x 32
+y 0
+w 16
+h 16
+
+idWall4
+image data/Wall.png
+x 48
+y 0
+w 16
+h 16
+
+idWall5
+image data/Wall.png
+x 0
+y 16
+w 16
+h 16
+
+idWall6
+image data/Wall.png
+x 16
+y 16
+w 16
+h 16
+
+idWall7
+image data/Wall.png
+x 32
+y 16
+w 16
+h 16
+
+idWall8
+image data/Wall.png
+x 48
+y 16
+w 16
+h 16
+
+idWall9
+image data/Wall.png
+x 0
+y 32
+w 16
+h 16
+
+idWall10
+image data/Wall.png
+x 16
+y 32
+w 16
+h 16
+
+idWall11
+image data/Wall.png
+x 32
+y 32
+w 16
+h 16
+
+idWall12
+image data/Wall.png
+x 48
+y 32
+w 16
+h 16
+
+idWall13
+image data/Wall.png
+x 0
+y 48
+w 16
+h 16
+
+idWall14
+image data/Wall.png
+x 16
+y 48
+w 16
+h 16
+
+idWall15
+image data/Wall.png
+x 32
+y 48
+w 16
+h 16
+
+idWall16
+image data/Wall.png
+x 48
+y 48
+w 16
+h 16
+
+idHuman1.1
+image data/human1.png
+x 0
+y 0
+w 64
+h 64
+
+idHuman1.2
+image data/human1.png
+x 64
+y 0
+w 64
+h 64
+
+idHuman1.3
+image data/human1.png
+x 128
+y 0
+w 64
+h 64
+
+idHuman1.4
+image data/human1.png
+x 192
+y 0
+w 64
+h 64
+
+idHuman1.5
+image data/human1.png
+x 0
+y 64
+w 64
+h 64
+
+idHuman1.6
+image data/human1.png
+x 64
+y 64
+w 64
+h 64
+
+idHuman1.7
+image data/human1.png
+x 128
+y 64
+w 64
+h 64
+
+idHuman1.8
+image data/human1.png
+x 192
+y 64
+w 64
+h 64
+
+idHuman1.9
+image data/human1.png
+x 0
+y 128
+w 64
+h 64
+
+idHuman1.10
+image data/human1.png
+x 64
+y 128
+w 64
+h 64
+
+idHuman1.11
+image data/human1.png
+x 128
+y 128
+w 64
+h 64
+
+idHuman1.12
+image data/human1.png
+x 192
+y 128
+w 64
+h 64
+
+idHuman1.13
+image data/human1.png
+x 0
+y 192
+w 64
+h 64
+
+idHuman1.14
+image data/human1.png
+x 64
+y 192
+w 64
+h 64
+
+idHuman1.15
+image data/human1.png
+x 128
+y 192
+w 64
+h 64
+
+idHuman1.16
+image data/human1.png
+x 192
+y 192
+w 64
+h 64
+
+idBomb
+image data/Bomb.png
+x 0
+y 0
+w 16
+h 16

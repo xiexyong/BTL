@@ -1,12 +1,15 @@
 package com.dung.userinterface;
 
+import com.dung.effect.CacheDataLoader;
+
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class GameFrame extends JFrame {
 
     public static final int s_width = 1000;
-    public static final int s_height = 600;
+    public static final int s_height = 620;
     GamePanel gamePanel;
 
     public GameFrame(){
@@ -15,8 +18,21 @@ public class GameFrame extends JFrame {
         this.setBounds((dimension.width-s_width)/2,(dimension.height-s_height)/2,s_width,s_height);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        try {
+            CacheDataLoader.getInstance().LoadData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         gamePanel = new GamePanel();
         add(gamePanel);
+
+
+        this.addKeyListener(gamePanel);
+
+
     }
 
     public void startGame(){
