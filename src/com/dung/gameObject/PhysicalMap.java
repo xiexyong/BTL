@@ -1,7 +1,6 @@
 package com.dung.gameObject;
 
 import com.dung.effect.CacheDataLoader;
-
 import java.awt.*;
 
 public class PhysicalMap extends GameObject{
@@ -40,7 +39,7 @@ public class PhysicalMap extends GameObject{
         for(int y = posY; y >= 0; y--){
             for(int x = posX1; x <= posX2; x++){
 
-                if(phys_map[y][x] == 1){
+                if(phys_map[y][x] >0){
                     Rectangle r = new Rectangle((int) getPosX() + x * tileSize, (int) getPosY() + y * tileSize, tileSize, tileSize);
                     if(rect.intersects(r))
                         return r;
@@ -65,7 +64,7 @@ public class PhysicalMap extends GameObject{
         for(int y = posY; y < phys_map.length;y++){
             for(int x = posX1; x <= posX2; x++){
 
-                if(phys_map[y][x] == 1){
+                if(phys_map[y][x] >0){
                     Rectangle r = new Rectangle((int) getPosX() + x * tileSize, (int) getPosY() + y * tileSize, tileSize, tileSize);
                     if(rect.intersects(r))
                         return r;
@@ -93,7 +92,7 @@ public class PhysicalMap extends GameObject{
 
         for(int x = posX1; x <= posX2; x++){
             for(int y = posY1; y <= posY2;y++){
-                if(phys_map[y][x] == 1){
+                if(phys_map[y][x] >0){
                     Rectangle r = new Rectangle((int) getPosX() + x * tileSize, (int) getPosY() + y * tileSize, tileSize, tileSize);
                     if(r.y < rect.y + rect.height - 1 && rect.intersects(r))
                         return r;
@@ -123,10 +122,29 @@ public class PhysicalMap extends GameObject{
 
         for(int x = posX1; x >= posX2; x--){
             for(int y = posY1; y <= posY2;y++){
-                if(phys_map[y][x] == 1){
+                if(phys_map[y][x] >0){
                     Rectangle r = new Rectangle((int) getPosX() + x * tileSize, (int) getPosY() + y * tileSize, tileSize, tileSize);
                     if(r.y < rect.y + rect.height - 1 && rect.intersects(r))
                         return r;
+                }
+            }
+        }
+        return null;
+
+    }
+
+
+    public Rectangle haveCollisionWithNull(Rectangle rect){
+
+
+        int posY1 = rect.y/tileSize;
+        int posX1 = (rect.x)/tileSize;
+
+        for(int i = 0; i < phys_map[0].length ; i++){
+            for(int j = 0; j < phys_map.length ; j++){
+                if(phys_map[j][i] == 0 && i==posX1 && j==posY1 ){
+                    Rectangle r = new Rectangle((int) getPosX() + (i+1) * tileSize -20, (int) getPosY() + (j+1) * tileSize -20, tileSize, tileSize);
+                    return r;
                 }
             }
         }

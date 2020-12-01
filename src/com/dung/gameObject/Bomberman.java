@@ -16,10 +16,29 @@ public class Bomberman extends Human {
     GameWorld gameWorld;
 
     private Animation idHumanU, idHumanD, idHumanL, idHumanR;
-    private FrameImage idHumanU1, idHumanD1, idHumanL1, idHumanR1;
+
+    private int makeBomb = 0;
+
+    public int somangsong = 3;
+
+    public int Death = 0;
+
+    @Override
+    public String toString() {
+        return "" + somangsong ;
+    }
+
+
+    public int getMakeBomb() {
+        return makeBomb;
+    }
+
+    public void setMakeBomb(int makeBomb) {
+        this.makeBomb = makeBomb;
+    }
 
     public Bomberman(float posX, float posY, GameWorld gameWorld) {
-        super(posX,posY,30,30,gameWorld);
+        super(posX,posY,20,30,gameWorld);
         setPosX(posX);
         setPosY(posY);
         this.gameWorld = gameWorld;
@@ -34,8 +53,6 @@ public class Bomberman extends Human {
 
     public void update(){
         super.Update();
-
-
     }
 
     public void draw(Graphics2D g2){
@@ -44,9 +61,10 @@ public class Bomberman extends Human {
 
         g2.setColor(Color.black);
         g2.fillRect((int)(getPosX()), (int) (getPosY()), 2, 2 );*/
-        drawBoundForCollisionWithMap(g2);
+        //drawBoundForCollisionWithMap(g2);
 
-        long x;
+        //idHumanR.draw((int) (getPosX()), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2), g2);
+
 
         if(getDirection() == RIGHT_DIR && gameWorld.bomberman.getLAND_DIR()==0){
             idHumanR.Update(System.nanoTime());

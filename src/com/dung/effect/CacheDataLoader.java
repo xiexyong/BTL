@@ -10,10 +10,11 @@ import java.util.Hashtable;
 public class CacheDataLoader {
 
     private  static  CacheDataLoader instance = null;
+    public CacheDataLoader getInstance;
 
     private String frameFile = "data/frame.txt";
     private String animationFile = "data/animation.txt";
-    private String phymapfile = "data/phymap.txt";
+    private String phymapfile = "data/backgroundmap.txt";
     private String backgroundmapfile = "data/backgroundmap.txt";
 
 
@@ -36,7 +37,7 @@ public class CacheDataLoader {
     }
 
     public int[][] getPhysicalMap(){
-        return instance.phymap;
+        return instance.backmap;
     }
     public int[][] getBackgroundMap(){
         return instance.backmap;
@@ -63,12 +64,12 @@ public class CacheDataLoader {
             }
         }
 
-            for(int i = 0; i < numberOfRows; i++){
+            /*for(int i = 0; i < numberOfRows; i++){
                  for(int j = 0; j< numberOfColumns; j++){
                      System.out.print(" "+instance.phymap[i][j]);
                  }
                 System.out.println();
-            }
+            }*/
 
             br.close();
 
@@ -198,13 +199,13 @@ public class CacheDataLoader {
                 instance.backmap[i][j] = Integer.parseInt(str[j]);
         }
 
-        for(int i = 0;i < numberOfRows;i++){
+        /*for(int i = 0;i < numberOfRows;i++){
 
             for(int j = 0;j<numberOfColumns;j++)
                 System.out.print(" "+instance.backmap[i][j]);
 
             System.out.println();
-        }
+        }*/
 
         br.close();
 
@@ -227,6 +228,7 @@ public class CacheDataLoader {
         LoadFrame();
         LoadAnimation();
         LoadPhyMap();
+        LoadBackgroundMap();
     }
 
 }

@@ -38,8 +38,8 @@ public abstract  class ParticularObject extends GameObject  {
 
     private float width ;
     private float height ;
-    private float speedX = 1;
-    private float speedY = 1;
+    private float speedX ;
+    private float speedY ;
 
     private int direction;
 
@@ -53,7 +53,8 @@ public abstract  class ParticularObject extends GameObject  {
         setWidth(width);
         setHeight(height);
 
-        direction = RIGHT_DIR;
+        direction = DOWN_DIR;
+        LAND_DIR = 1;
 
     }
     public static int getLeagueTeam() {

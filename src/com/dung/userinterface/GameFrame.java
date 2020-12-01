@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class GameFrame extends JFrame {
 
-    public static final int s_width = 1000;
-    public static final int s_height = 620;
+    public static final int s_width = 1120;
+    public static final int s_height = 600;
     GamePanel gamePanel;
 
     public GameFrame(){

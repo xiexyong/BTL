@@ -44,7 +44,7 @@ public class InputManager {
                 System.out.println("You press enter");
                 break;
             case  KeyEvent.VK_SPACE:
-                System.out.println("You press speak");
+                gameWorld.bomberman.setMakeBomb(1);
                 break;
         }
     }
@@ -67,10 +67,10 @@ public class InputManager {
                 gameWorld.bomberman.setLAND_DIR(1);
                 break;
             case KeyEvent.VK_ENTER:
-                System.out.println("You released enter");
+
                 break;
             case  KeyEvent.VK_SPACE:
-                System.out.println("You released space");
+                //ameWorld.bomberman.setMakeBomb(0);
                 break;
         }
     }
