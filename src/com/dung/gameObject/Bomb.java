@@ -12,26 +12,34 @@ import java.io.IOException;
 
 
 public class Bomb extends ParticularObject {
-    GamePanel gamePanel;
-
 
     GameWorld gameWorld;
 
     BufferedImage image;
 
-    public int bomb1Active = 0;
+    private Animation explosion,explosion1,explosion2;
 
-    public long timeBomb1;
+    private int demDraw = 0,demDraw1 = 0,demDraw2 = 0;
+    private int demAnimation = 0,demAnimation1 = 0,demAnimation2 = 0;
 
-    private Animation explosion;
+    private int numberBomb = 1;
+    private int b1Activate = 0, b2Activate = 0;
+
+    Rectangle obom = new Rectangle();
+    Rectangle obom1 = new Rectangle();
+    Rectangle obom2 = new Rectangle();
+
+    private long timeBomb,timeBomb1,timeBomb2;
+
 
     public Bomb(float x, float y, GameWorld gameWorld) {
         super(x, y, 40, 40, gameWorld);
-        setPosX(gameWorld.bomberman.getPosX());
-        setPosY(gameWorld.bomberman.getPosY());
+
         this.gameWorld = gameWorld;
 
         explosion = CacheDataLoader.getInstance().getAnimation("idBoom");
+        explosion1 = CacheDataLoader.getInstance().getAnimation("idBoom");
+        explosion2 = CacheDataLoader.getInstance().getAnimation("idBoom");
 
         try {
             image = ImageIO.read(new File("data/bomb.png"));
@@ -40,172 +48,234 @@ public class Bomb extends ParticularObject {
         }
 
 
+
     }
-
-    float x = -1;
-    float y = -1;
-
-    long timeDeath = 0;
+    int dem = 0;
 
     public void draw(Graphics2D g2) {
-        int demve = 1;
-        int demanimation = 1;
-
-        long beginnTime = 0;
-
-        long dtTime = System.nanoTime() - gameWorld.bomb1.timeBomb1;
+        System.out.println(gameWorld.bomberman.getPosX() + "      " + gameWorld.bomberman.getPosY() );
 
 
-        if (gameWorld.bomb1.getPosX() > 0 && gameWorld.bomb1.getPosY() > 0) {
-            if (bomb1Active == 1 && gameWorld.getNumberBomb() == 1 && demve == 1) {
-                g2.drawImage(image, (int) x - 15, (int) y - 20, null);
-            }
+        if (numberBomb == 1) {
+        if (demDraw == 1 && demAnimation == 0) {
+            g2.drawImage(image, obom.x - 15, obom.y - 20, null);
         }
+        if (demAnimation == 1 && demDraw == 0) {
+            explosion.Update(System.nanoTime());
 
-        if(gameWorld.bomberman.Death==1 && gameWorld.bomberman.somangsong>0){
-            gameWorld.bomberman.setPosX(60);
-            gameWorld.bomberman.setPosY(60);
-            gameWorld.bomberman.Death=0;
-            gameWorld.bomberman.somangsong--;
-            gameWorld.bomberman.setDirection(DOWN_DIR);
+            for(int i = 0; i < gameWorld.physicalMap.phys_map[0].length ; i++){
+                for(int j = 0; j < gameWorld.physicalMap.phys_map.length ; j++){
+                    if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom.x/40 && j==obom.y/40 ){
+                        gameWorld.physicalMap.phys_map[j][i] = 0;
+                        explosion.draw(obom.x, obom.y, g2); }
 
-            for(int i = 0;i< gameWorld.backgroundMap.backMap.length;i++)
-                for(int j = 0;j<gameWorld.backgroundMap.backMap[0].length;j++) {
-                    gameWorld.backgroundMap.backMap[i][j] = gameWorld.backgroundMap.backupMap[i][j];
-                }
-        }
+                    if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==(obom.x-40)/40 && j==obom.y/40 ){
+                        gameWorld.physicalMap.phys_map[j][i] = 0;
+                        explosion.draw(obom.x -40, obom.y, g2);
 
-        if (x >= 0 && y >= 0 && gameWorld.bomberman.somangsong >0 && gameWorld.bomberman.Death==0 ) {
-            if (dtTime > 2000 * 1000000) {
-                demve = 0;
-                gameWorld.bomb1.setPosX(0);
-                gameWorld.bomb1.setPosY(0);
-                if (demanimation == 1) {
+                    }
 
-                    explosion.Update(System.nanoTime());
+                    if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom.x/40 +1 && j==obom.y/40 ){
+                        gameWorld.physicalMap.phys_map[j][i] = 0;
+                        explosion.draw(obom.x +40, obom.y, g2);
 
+                    }
 
-                    //System.out.println(x+  "     " +y);
+                    if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom.x/40 && j==obom.y/40 +1 ){
+                        gameWorld.physicalMap.phys_map[j][i] = 0;
+                        explosion.draw(obom.x, obom.y +40, g2);
 
-                    int[][] vungno = new int[5][2];
+                    }
 
-                    vungno[0][0] =(int) (x - 40 -20)/40;  vungno[2][0] =(int) (x-20)/40;
-                    vungno[0][1] = (int)(y-20)/40;         vungno[2][1] = (int)(y - 40 -20)/40;
-                    vungno[1][0] = (int)(x + 40 -20)/40;  vungno[3][0] = (int)(x-20)/40;
-                    vungno[1][1] = (int)(y-20)/40;         vungno[3][1] = (int)(y + 40-20)/40;
-                    vungno[4][0] = (int)(x-20)/40;
-                    vungno[4][1] = (int)(y-20)/40;
-
-
-                    for(int j=0; j<gameWorld.physicalMap.phys_map.length; j++)
-                    {
-                        for(int i=0; i<gameWorld.physicalMap.phys_map[0].length; i++)
-                        {
-                            //System.out.println((int)x-40+  "     " +(int)y);
-                            //System.out.println(vungno[0][0]+  "     " +i +"       "+ vungno[0][1]+  "     "+j);
-                            if(vungno[4][0]==i && vungno[4][1]==j && gameWorld.physicalMap.phys_map[j][i]!=1) {
-                                explosion.draw((int) x, (int) y, g2);
-                                gameWorld.physicalMap.phys_map[j][i]=0;
-                                if((int)gameWorld.bomberman.getPosX()/40==i&&(int)gameWorld.bomberman.getPosY()/40==j){
-                                    gameWorld.bomberman.Death=1;
-                                    timeDeath = System.nanoTime();
-                                }
-                            }
-                            if(vungno[0][0]==i && vungno[0][1]==j && gameWorld.physicalMap.phys_map[j][i]!=1){
-                                explosion.draw((int)x - 40, (int)y, g2);
-                                gameWorld.physicalMap.phys_map[j][i]=0;
-                                if((int)gameWorld.bomberman.getPosX()/40==i&&(int)gameWorld.bomberman.getPosY()/40==j){
-                                    gameWorld.bomberman.Death=1;
-                                    timeDeath = System.nanoTime();
-                                }
-                            //System.out.println(x-40+  "     " +y);
-                            }
-
-                            if(vungno[1][0]==i && vungno[1][1]==j && gameWorld.physicalMap.phys_map[j][i]!=1){
-                                explosion.draw((int) x + 40, (int) y, g2);
-                            gameWorld.physicalMap.phys_map[j][i]=0;
-                                if((int)gameWorld.bomberman.getPosX()/40==i&&(int)gameWorld.bomberman.getPosY()/40==j){
-                                    gameWorld.bomberman.Death=1;
-                                    timeDeath = System.nanoTime();
-                                }
-                            }
-
-                            if(vungno[2][0]==i && vungno[2][1]==j &&  gameWorld.physicalMap.phys_map[j][i]!=1) {
-                                explosion.draw((int) x, (int) y - 40, g2);
-                                gameWorld.physicalMap.phys_map[j][i] = 0;
-                                if((int)gameWorld.bomberman.getPosX()/40==i&&(int)gameWorld.bomberman.getPosY()/40==j){
-                                    gameWorld.bomberman.Death=1;
-                                    timeDeath = System.nanoTime();
-                                }
-                            }
-
-                            if(vungno[3][0]==i && vungno[3][1]==j && gameWorld.physicalMap.phys_map[j][i]!=1) {
-                                explosion.draw((int) x, (int) y + 40, g2);
-                                gameWorld.physicalMap.phys_map[j][i] = 0;
-                                if((int)gameWorld.bomberman.getPosX()/40==i&&(int)gameWorld.bomberman.getPosY()/40==j){
-                                    gameWorld.bomberman.Death=1;
-                                    timeDeath = System.nanoTime();
-                                }
-                            }
-
-
-                        }
+                    if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom.x/40 && j==obom.y/40 -1 ){
+                        gameWorld.physicalMap.phys_map[j][i] = 0;
+                        explosion.draw(obom.x, obom.y -40, g2);
 
                     }
 
 
-                }
-                if (explosion.isLastFrame()) {
-                    explosion.reset();
-                    x = -1;
-                    y = -1;
-                    bomb1Active = 0;
-                }
-                //System.out.println(bomb1.timeBomb1);
-                //System.out.println(System.nanoTime());
+                }}
+
+
+            if (explosion.isLastFrame()) {
+                explosion.reset();
+                demAnimation = 0;
+                demDraw = 0;
             }
-            //System.out.println(gameWorld.bomb1.getPosX() + "   " + gameWorld.bomb1.getPosY() +"     "+x+"      "+y);
-            gameWorld.bomberman.setMakeBomb(0);
-
-
         }
 
+
+    }
+
+    if (numberBomb == 2 ) {
+            if (demDraw1 == 1 && demAnimation1 == 0) {
+                g2.drawImage(image, obom1.x - 15, obom1.y - 20, null);
+            }
+            if (demAnimation1 == 1 && demDraw1 == 0) {
+                explosion1.Update(System.nanoTime());
+
+                for(int i = 0; i < gameWorld.physicalMap.phys_map[0].length ; i++){
+                    for(int j = 0; j < gameWorld.physicalMap.phys_map.length ; j++){
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom1.x/40 && j==obom1.y/40 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion1.draw(obom1.x, obom1.y, g2); }
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom1.x/40 + 1 && j==obom1.y/40 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion1.draw(obom1.x + 40, obom1.y, g2); }
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom1.x/40 -1 && j==obom1.y/40 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion1.draw(obom1.x - 40, obom1.y, g2); }
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom1.x/40 && j==obom1.y/40 +1 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion1.draw(obom1.x, obom1.y +40, g2); }
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom1.x/40 && j==obom1.y/40 -1 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion1.draw(obom1.x, obom1.y -40, g2); }
+                    }}
+
+
+            }
+
+            if (explosion1.isLastFrame()) {
+                explosion1.reset();
+                b1Activate = 0;
+                demAnimation1 = 0;
+                demDraw1 = 0;
+            }
+    }
+    if (numberBomb == 2 ) {
+            if (demDraw2 == 1 && demAnimation2 == 0) {
+                g2.drawImage(image, obom2.x - 15, obom2.y - 20, null);
+            }
+            if (demAnimation2 == 1 && demDraw2 == 0) {
+                explosion2.Update(System.nanoTime());
+                for(int i = 0; i < gameWorld.physicalMap.phys_map[0].length ; i++){
+                    for(int j = 0; j < gameWorld.physicalMap.phys_map.length ; j++){
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom2.x/40 && j==obom2.y/40 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion2.draw(obom2.x, obom2.y, g2); }
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom2.x/40 + 1 && j==obom2.y/40 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion2.draw(obom2.x + 40, obom2.y, g2); }
+
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom2.x/40 -1 && j==obom2.y/40 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion2.draw(obom2.x - 40, obom2.y, g2); }
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom2.x/40 && j==obom2.y/40 +1 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion2.draw(obom2.x, obom2.y +40, g2); }
+
+                        if((gameWorld.physicalMap.phys_map[j][i] > 1 ||gameWorld.physicalMap.phys_map[j][i] == 0 ) && i==obom2.x/40 && j==obom2.y/40 -1 ){
+                            gameWorld.physicalMap.phys_map[j][i] = 0;
+                            explosion2.draw(obom2.x, obom2.y -40, g2); }
+                    }}
+            }
+
+            if (explosion2.isLastFrame()) {
+                explosion2.reset();
+                b2Activate = 0;
+                demAnimation2 = 0;
+                demDraw2 = 0;
+            }
+
+    }
 
     }
 
 
         @Override
         public void Update () {
-            if (gameWorld.bomberman.getMakeBomb() == 1 && bomb1Active == 0 && gameWorld.getNumberBomb() == 1) {
+            if (gameWorld.bomberman.getMakeBomb() == 1  && numberBomb == 1 && demAnimation == 0 && demDraw == 0) {
                 gameWorld.bomb1.setPosX(gameWorld.bomberman.getPosX());
                 gameWorld.bomb1.setPosY(gameWorld.bomberman.getPosY());
 
-
-                x = gameWorld.bomb1.getPosX();
-
-                y = gameWorld.bomb1.getPosY();
-
-                Rectangle obom = new Rectangle();
-                obom.x = (int) x;
-                obom.y = (int) y;
+                gameWorld.bomberman.setMakeBomb(0);
+                obom.x = (int) gameWorld.bomb1.getPosX();
+                obom.y = (int) gameWorld.bomb1.getPosY();
                 obom.width = 40;
                 obom.height = 40;
 
+
                 if (getGameWorld().physicalMap.haveCollisionWithNull(obom) != null) {
                     Rectangle rect = getGameWorld().physicalMap.haveCollisionWithNull(obom);
-                    x = rect.x;
-                    y = rect.y;
-                    //System.out.println(x+  "     " +y);
-
+                    obom.x = rect.x;
+                    obom.y = rect.y;
                 }
 
 
-                bomb1Active = 1;
-                timeBomb1 = System.nanoTime();
+                timeBomb = System.currentTimeMillis();
+                demDraw = 1;
 
+            }
+            if ( demDraw == 1 && demAnimation ==0 && (System.currentTimeMillis() - timeBomb) > 2000 && (System.currentTimeMillis() - timeBomb) < 3000){
+                demDraw = 0;
+                demAnimation = 1;
+            }
+            if ( demDraw1 == 1 && demAnimation1 ==0 && (System.currentTimeMillis() - timeBomb1) > 2000 && (System.currentTimeMillis() - timeBomb1) < 3000){
+                demDraw1 = 0;
+                demAnimation1 = 1;
+            }
+            if (demDraw2 == 1 && demAnimation2 ==0 && (System.currentTimeMillis() - timeBomb2) > 2000 && (System.currentTimeMillis() - timeBomb2) < 3000){
+                demDraw2 = 0;
+                demAnimation2 = 1;
+            }
+
+            if (gameWorld.bomberman.getMakeBomb() == 1  && numberBomb == 2 && demDraw1 == 0 && b1Activate == 0) {
+
+                    gameWorld.bomb1.setPosX(gameWorld.bomberman.getPosX());
+                    gameWorld.bomb1.setPosY(gameWorld.bomberman.getPosY());
+
+                    gameWorld.bomberman.setMakeBomb(0);
+                    obom1.x = (int) gameWorld.bomb1.getPosX();
+                    obom1.y = (int) gameWorld.bomb1.getPosY();
+                    obom1.width = 40;
+                    obom1.height = 40;
+                    b1Activate = 1;
+
+
+                    if (getGameWorld().physicalMap.haveCollisionWithNull(obom1) != null) {
+                        Rectangle rect = getGameWorld().physicalMap.haveCollisionWithNull(obom1);
+                        obom1.x = rect.x;
+                        obom1.y = rect.y;
+                    }
+
+                    timeBomb1 = System.currentTimeMillis();
+                    demDraw1 = 1;
+            }
+
+            if (gameWorld.bomberman.getMakeBomb() == 1  && numberBomb == 2 && demDraw1 == 1 && demDraw2 == 0 && b2Activate == 0) {
+
+                gameWorld.bomb1.setPosX(gameWorld.bomberman.getPosX());
+                gameWorld.bomb1.setPosY(gameWorld.bomberman.getPosY());
+
+                gameWorld.bomberman.setMakeBomb(0);
+                obom2.x = (int) gameWorld.bomb1.getPosX();
+                obom2.y = (int) gameWorld.bomb1.getPosY();
+                obom2.width = 40;
+                obom2.height = 40;
+
+                b2Activate = 1;
+
+
+                if (getGameWorld().physicalMap.haveCollisionWithNull(obom2) != null) {
+                    Rectangle rect = getGameWorld().physicalMap.haveCollisionWithNull(obom2);
+                    obom2.x = rect.x;
+                    obom2.y = rect.y;
+
+                }
+
+                timeBomb2 = System.currentTimeMillis();
+                demDraw2 = 1;
             }
 
 
 
-    }
+        }
 }

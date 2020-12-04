@@ -552,5 +552,5 @@ idBomb
 image data/Bomb.png
 x 0
 y 0
-w 16
-h 16
+w 35
+h 35

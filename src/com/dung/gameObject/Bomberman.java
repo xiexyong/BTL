@@ -56,60 +56,45 @@ public class Bomberman extends Human {
     }
 
     public void draw(Graphics2D g2){
-        /*g2.setColor(Color.red);
-        g2.fillRect((int) (getPosX() - getWidth()/2),(int) (getPosY() - getHeight()/2), 15,15 );
-
-        g2.setColor(Color.black);
-        g2.fillRect((int)(getPosX()), (int) (getPosY()), 2, 2 );*/
-        //drawBoundForCollisionWithMap(g2);
-
-        //idHumanR.draw((int) (getPosX()), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2), g2);
-
 
         if(getDirection() == RIGHT_DIR && gameWorld.bomberman.getLAND_DIR()==0){
             idHumanR.Update(System.nanoTime());
             idHumanR.draw((int) (getPosX()), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2), g2);
-            //idHumanR1.draw(g2,(int) getPosX(), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2));
-
         }
         if(getDirection() == RIGHT_DIR && gameWorld.bomberman.getLAND_DIR()==1){
-            //idHumanR.Update(System.nanoTime());
+            idHumanR.Update(0);
             idHumanR.draw((int) (getPosX()), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2), g2);
         }
         if(getDirection() == LEFT_DIR && gameWorld.bomberman.getLAND_DIR()==0){
             idHumanL.Update(System.nanoTime());
-            //idHumanR.setCurrentFrame(idHumanL.getCurrentFrame());
             idHumanL.draw((int) (getPosX()),
                     (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2),
                     g2);
         }
         if(getDirection() == LEFT_DIR && gameWorld.bomberman.getLAND_DIR()==1){
-            //idHumanR.Update(System.nanoTime());
+            idHumanL.Update(0);
             idHumanL.draw((int) (getPosX()), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2), g2);
         }
         if(getDirection() == UP_DIR && gameWorld.bomberman.getLAND_DIR()==0){
             idHumanU.Update(System.nanoTime());
-            //idHumanR.setCurrentFrame(idHumanL.getCurrentFrame());
             idHumanU.draw((int) (getPosX()),
                     (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2),
                     g2);
         }
         if(getDirection() == UP_DIR && gameWorld.bomberman.getLAND_DIR()==1){
-            //idHumanR.Update(System.nanoTime());
+            idHumanU.Update(0);
             idHumanU.draw((int) (getPosX()), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2), g2);
         }
         if(getDirection() == DOWN_DIR && gameWorld.bomberman.getLAND_DIR()==0){
             idHumanD.Update(System.nanoTime());
-            //idHumanR.setCurrentFrame(idHumanL.getCurrentFrame());
             idHumanD.draw((int) (getPosX()),
                     (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2),
                     g2);
         }
         if(getDirection() == DOWN_DIR && gameWorld.bomberman.getLAND_DIR()==1){
-            //idHumanR.Update(System.nanoTime());
+            idHumanD.Update(0);
             idHumanD.draw((int) (getPosX()), (int) getPosY()  + (getBoundForCollisionWithMap().height/2 - idHumanR.getCurrentImage().getHeight()/2), g2);
         }
-
 
     }
 

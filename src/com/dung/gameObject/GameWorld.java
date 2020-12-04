@@ -18,16 +18,6 @@ public class GameWorld {
 
 
 
-    private int numberBomb = 1;
-
-
-    public int getNumberBomb() {
-        return numberBomb;
-    }
-
-    public void setNumberBomb(int numberBomb) {
-        this.numberBomb = numberBomb;
-    }
 
     public void Update(){
         bomberman.update();
@@ -52,6 +42,7 @@ public class GameWorld {
         backgroundMap.draw(g2);
         bomb1.draw(g2);
         bomberman.draw(g2);
+
     }
 
 

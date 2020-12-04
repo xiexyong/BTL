@@ -122,6 +122,9 @@ public class Animation {
     public BufferedImage getCurrentImage(){
         return frameImages.get(currentFrame).getImage();
     }
+    public BufferedImage getCurrentNextImage(){
+        return frameImages.get(currentFrame+1).getImage();
+    }
 
     public void Update(long deltaTime){
 

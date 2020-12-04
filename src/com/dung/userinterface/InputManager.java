@@ -70,7 +70,7 @@ public class InputManager {
 
                 break;
             case  KeyEvent.VK_SPACE:
-                //ameWorld.bomberman.setMakeBomb(0);
+                //gameWorld.bomberman.setMakeBomb(1);
                 break;
         }
     }
