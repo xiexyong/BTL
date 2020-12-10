@@ -28,6 +28,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener  {
 
     private GameWorld gameWorld;
 
+    private long timeEnd;
+
 
     Animation animation1;
     FrameImage frame1;
@@ -121,6 +123,9 @@ public class GamePanel extends JPanel implements Runnable, KeyListener  {
                // else Thread.sleep(sleepTime/2000000);
             } catch (InterruptedException e) { }
             beginTime = System.nanoTime();
+
+            if(gameWorld.bomberman.somangsong<1) break;
+
         }
     }
 

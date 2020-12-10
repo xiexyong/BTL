@@ -4,22 +4,23 @@ import java.awt.*;
 
 public abstract class Human extends ParticularObject{
 
+    public int itemSpeed = 0;
+
     public Human(float posX, float posY, float width, float height, GameWorld gameWorld) {
         super(posX, posY, width, height, gameWorld);
-
-        setState(ALIVE);
     }
 
     @Override
     public void Update(){
         super.Update();
-
-        if(getState() == ALIVE ){
-
-
-
+        if(itemSpeed==1){
+            setPosX(getPosX() + getSpeedX()*2);
+            setPosY(getPosY() + getSpeedY()*2);
+        }
+        else {
                 setPosX(getPosX() + getSpeedX());
-
+                setPosY(getPosY() + getSpeedY());
+        }
                 if(getDirection() == LEFT_DIR &&
                         getGameWorld().physicalMap.haveCollisionWithLeftWall(getBoundForCollisionWithMap())!=null){
 
@@ -36,7 +37,6 @@ public abstract class Human extends ParticularObject{
                 }
 
 
-            setPosY(getPosY() + getSpeedY());
 
             if(getDirection() == UP_DIR &&
                     getGameWorld().physicalMap.haveCollisionWithTop(getBoundForCollisionWithMap())!=null){
@@ -52,7 +52,11 @@ public abstract class Human extends ParticularObject{
                 setPosY(rectDownWall.y - getHeight()/2);
 
             }
-        }
+
+
+
+
+
 
     }
 

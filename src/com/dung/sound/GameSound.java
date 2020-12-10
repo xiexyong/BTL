@@ -1,4 +1,4 @@
-package sound;
+package com.dung.sound;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
@@ -23,7 +23,7 @@ public class GameSound {
 		loadAllAudio();
 	}
 
-	public static GameSound getIstance() {
+	public static GameSound getInstance() {
 		if (instance == null) {
 			instance = new GameSound();
 		}

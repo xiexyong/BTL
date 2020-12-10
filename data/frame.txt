@@ -1,5 +1,5 @@
 
-79
+123
 
 idBoom1
 image data/Explosion1.png
@@ -554,3 +554,311 @@ x 0
 y 0
 w 35
 h 35
+
+idEnemyD1
+image data/enemy.png
+x 0
+y 0
+w 50
+h 50
+
+idEnemyD2
+image data/enemy.png
+x 50
+y 0
+w 50
+h 50
+
+idEnemyD3
+image data/enemy.png
+x 100
+y 0
+w 50
+h 50
+
+idEnemyD4
+image data/enemy.png
+x 150
+y 0
+w 50
+h 50
+
+idEnemyD5
+image data/enemy.png
+x 200
+y 0
+w 50
+h 50
+
+idEnemyD6
+image data/enemy.png
+x 250
+y 0
+w 50
+h 50
+
+idEnemyD7
+image data/enemy.png
+x 300
+y 0
+w 50
+h 50
+
+idEnemyD8
+image data/enemy.png
+x 350
+y 0
+w 50
+h 50
+
+idEnemyD9
+image data/enemy.png
+x 400
+y 0
+w 50
+h 50
+
+idEnemyD10
+image data/enemy.png
+x 450
+y 0
+w 50
+h 50
+
+idEnemyD11
+image data/enemy.png
+x 500
+y 0
+w 50
+h 50
+
+idEnemyL1
+image data/enemy.png
+x 0
+y 50
+w 50
+h 50
+
+idEnemyL2
+image data/enemy.png
+x 50
+y 50
+w 50
+h 50
+
+idEnemyL3
+image data/enemy.png
+x 100
+y 50
+w 50
+h 50
+
+idEnemyL4
+image data/enemy.png
+x 150
+y 50
+w 50
+h 50
+
+idEnemyL5
+image data/enemy.png
+x 200
+y 50
+w 50
+h 50
+
+idEnemyL6
+image data/enemy.png
+x 250
+y 50
+w 50
+h 50
+
+idEnemyL7
+image data/enemy.png
+x 300
+y 50
+w 50
+h 50
+
+idEnemyL8
+image data/enemy.png
+x 350
+y 50
+w 50
+h 50
+
+idEnemyL9
+image data/enemy.png
+x 400
+y 50
+w 50
+h 50
+
+idEnemyL10
+image data/enemy.png
+x 450
+y 50
+w 50
+h 50
+
+idEnemyL11
+image data/enemy.png
+x 500
+y 50
+w 50
+h 50
+
+idEnemyR1
+image data/enemy.png
+x 0
+y 100
+w 50
+h 50
+
+idEnemyR2
+image data/enemy.png
+x 50
+y 100
+w 50
+h 50
+
+idEnemyR3
+image data/enemy.png
+x 100
+y 100
+w 50
+h 50
+
+idEnemyR4
+image data/enemy.png
+x 150
+y 100
+w 50
+h 50
+
+idEnemyR5
+image data/enemy.png
+x 200
+y 100
+w 50
+h 50
+
+idEnemyR6
+image data/enemy.png
+x 250
+y 100
+w 50
+h 50
+
+idEnemyR7
+image data/enemy.png
+x 300
+y 100
+w 50
+h 50
+
+idEnemyR8
+image data/enemy.png
+x 350
+y 100
+w 50
+h 50
+
+idEnemyR9
+image data/enemy.png
+x 400
+y 100
+w 50
+h 50
+
+idEnemyR10
+image data/enemy.png
+x 450
+y 100
+w 50
+h 50
+
+idEnemyR11
+image data/enemy.png
+x 500
+y 100
+w 50
+h 50
+
+idEnemyU1
+image data/enemy.png
+x 0
+y 150
+w 50
+h 50
+
+idEnemyU2
+image data/enemy.png
+x 50
+y 150
+w 50
+h 50
+
+idEnemyU3
+image data/enemy.png
+x 100
+y 150
+w 50
+h 50
+
+idEnemyU4
+image data/enemy.png
+x 150
+y 150
+w 50
+h 50
+
+idEnemyU5
+image data/enemy.png
+x 200
+y 150
+w 50
+h 50
+
+idEnemyU6
+image data/enemy.png
+x 250
+y 150
+w 50
+h 50
+
+idEnemyU7
+image data/enemy.png
+x 300
+y 150
+w 50
+h 50
+
+idEnemyU8
+image data/enemy.png
+x 350
+y 150
+w 50
+h 50
+
+idEnemyU9
+image data/enemy.png
+x 400
+y 150
+w 50
+h 50
+
+idEnemyU10
+image data/enemy.png
+x 450
+y 150
+w 50
+h 50
+
+idEnemyU11
+image data/enemy.png
+x 500
+y 150
+w 50
+h 50

@@ -19,8 +19,14 @@ public class BackgroundMap extends GameObject {
 
     private GameWorld gameWorld;
 
-    BufferedImage imagetile, imagemang0,imagemang1,imagemang2,imagemang3;
+    BufferedImage imagetile, imagemang0,imagemang1,imagemang2,imagemang3,imagemang4;
     BufferedImage image, subImage1, subImage0, imageDirt,subImage2 , subImageDirt , subImage5,subImage6, subImage7 ;
+    BufferedImage imageItemBomb,imageItemHeart,imageItemSpeed;
+
+    private int itemBomb = 0,demitembomb = 1;
+    private int itemHeart = 0,demitemheart = 1;
+    private int demitemSpeed = 1;
+
 
     public BackgroundMap(float x, float y, GameWorld gameWorld) {
         super(x, y, gameWorld);
@@ -37,6 +43,11 @@ public class BackgroundMap extends GameObject {
             imagemang1 = ImageIO.read(new File("data/mang1.png"));
             imagemang2 = ImageIO.read(new File("data/mang2.png"));
             imagemang3 = ImageIO.read(new File("data/mang3.png"));
+            imagemang4 = ImageIO.read(new File("data/mang4.png"));
+
+            imageItemBomb = ImageIO.read(new File("data/itembomb.png"));
+            imageItemHeart = ImageIO.read(new File("data/heart.png"));
+            imageItemSpeed = ImageIO.read(new File("data/itemspeed.png"));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,7 +80,8 @@ public class BackgroundMap extends GameObject {
                         (int) getPosY() + i * tileSize, null);
                 if(backMap[i][j]==3) g2.drawImage(subImage2, (int) getPosX() + j * tileSize,
                         (int) getPosY() + i * tileSize, null);
-
+                if(backMap[i][j]==4) g2.drawImage(subImageDirt, (int) getPosX() + j * tileSize,
+                        (int) getPosY() + i * tileSize, null);
                 if(backMap[i][j]==5) {
                     g2.drawImage(subImageDirt, (int) getPosX() + j * tileSize,
                             (int) getPosY() + i * tileSize, null);
@@ -91,18 +103,48 @@ public class BackgroundMap extends GameObject {
 
 
             }
+        if(backMap[4][1]==0 && demitembomb==1) {
+            g2.drawImage(imageItemBomb,40,160,null);
+        }
+        if((int)gameWorld.bomberman.getPosX()/40==1&&(int)gameWorld.bomberman.getPosY()/40==4&&demitembomb>0){
+            gameWorld.bomb1.numberBomb=2;
+            itemBomb=1;
+            demitembomb--;
+        }
+
+        if(backMap[1][4]==0 && demitemheart == 1) {
+            g2.drawImage(imageItemHeart,160,40,null);
+        }
+        if((int)gameWorld.bomberman.getPosX()/40==4&&(int)gameWorld.bomberman.getPosY()/40==1&&demitemheart>0){
+            gameWorld.bomberman.somangsong++;
+            itemHeart=1;
+            demitemheart--;
+        }
+
+        if(backMap[2][3]==0 && demitemSpeed==1 ) {
+            g2.drawImage(imageItemSpeed,120,80,null);
+        }
+        if((int)gameWorld.bomberman.getPosX()/40==3&&(int)gameWorld.bomberman.getPosY()/40==2&&demitemSpeed>0){
+            gameWorld.bomberman.itemSpeed=1;
+            demitemSpeed--;
+        }
+
+
         g2.drawImage(imagetile,885,0,220,550,null);
-            if(gameWorld.bomberman.somangsong==3){
-                g2.drawImage(imagemang3,880+150,300,null);
-            }
+        if(gameWorld.bomberman.somangsong==4){
+            g2.drawImage(imagemang4,880+150,250,null);
+        }
+        if(gameWorld.bomberman.somangsong==3){
+            g2.drawImage(imagemang3,880+150,250,null);
+        }
         if(gameWorld.bomberman.somangsong==2){
-            g2.drawImage(imagemang2,880+150,300,null);
+            g2.drawImage(imagemang2,880+150,250,null);
         }
         if(gameWorld.bomberman.somangsong==1){
-            g2.drawImage(imagemang1,880+150,300,null);
+            g2.drawImage(imagemang1,880+150,250,null);
         }
         if(gameWorld.bomberman.somangsong==0){
-            g2.drawImage(imagemang0,880+150,300,null);
+            g2.drawImage(imagemang0,880+150,250,null);
         }
 
         //ex.draw(30,30,g2);

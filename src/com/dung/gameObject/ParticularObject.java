@@ -13,28 +13,8 @@ public abstract  class ParticularObject extends GameObject  {
     public static final int UP_DIR = 2;
     public static final int DOWN_DIR = -2;
 
-    public static int getUpDir() {
-        return UP_DIR;
-    }
 
-    public static int getDownDir() {
-        return DOWN_DIR;
-    }
 
-    private int LAND_DIR = 0;
-
-    public int getLAND_DIR() {
-        return LAND_DIR;
-    }
-
-    public void setLAND_DIR(int LAND_DIR) {
-        this.LAND_DIR = LAND_DIR;
-    }
-
-    public static final int ALIVE = 1;
-    public static final int DEATH = 0;
-
-    private int state = ALIVE;
 
     private float width ;
     private float height ;
@@ -42,9 +22,15 @@ public abstract  class ParticularObject extends GameObject  {
     private float speedY ;
 
     private int direction;
+    private int directionEnemy;
 
-    private int teamType;
+    public int getDirectionEnemy() {
+        return directionEnemy;
+    }
 
+    public void setDirectionEnemy(int directionEnemy) {
+        this.directionEnemy = directionEnemy;
+    }
 
     public ParticularObject(float x, float y, float width, float height, GameWorld gameWorld){
 
@@ -54,7 +40,8 @@ public abstract  class ParticularObject extends GameObject  {
         setHeight(height);
 
         direction = DOWN_DIR;
-        LAND_DIR = 1;
+        directionEnemy = DOWN_DIR;
+
 
     }
     public static int getLeagueTeam() {
@@ -73,21 +60,6 @@ public abstract  class ParticularObject extends GameObject  {
         return RIGHT_DIR;
     }
 
-    public static int getALIVE() {
-        return ALIVE;
-    }
-
-    public static int getDEATH() {
-        return DEATH;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
 
     public float getWidth() {
         return width;
@@ -129,13 +101,6 @@ public abstract  class ParticularObject extends GameObject  {
         this.direction = direction;
     }
 
-    public int getTeamType() {
-        return teamType;
-    }
-
-    public void setTeamType(int teamType) {
-        this.teamType = teamType;
-    }
 
     public Rectangle getBoundForCollisionWithMap(){
         Rectangle bound = new Rectangle();
